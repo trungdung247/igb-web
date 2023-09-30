@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from 'stores';
 import { global } from 'utils/global';
 
-const serverURL = process.env.REACT_APP_API_ENDPOINT;
+const serverURL = process.env.API_ENDPOINT;
 
 const instance = axios.create({
   timeout: global?.SERVER_TIMEOUT,
