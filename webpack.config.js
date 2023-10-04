@@ -111,7 +111,9 @@ module.exports = (env, argv) => {
             new MiniCssExtractPlugin({
                 filename: isProduction ? 'static/css/[name].[contenthash:6].css' : '[name].css'
             }),
-            new Dotenv(),
+            new Dotenv({
+              path: '.env' // default is .env
+            }),
             new CopyWebpackPlugin({
                 patterns: [
                     {
