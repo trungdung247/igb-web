@@ -1,12 +1,17 @@
 import axios from 'axios';
 import store from 'stores';
-import { global } from 'utils/global';
+import { create } from 'apisauce'
+import Reactotron from 'reactotron-react-js';
 
 const serverURL = process.env.API_ENDPOINT;
 
-const instance = axios.create({
-  timeout: global?.SERVER_TIMEOUT,
+const customAxiosInstance = axios.create({ 
+  timeout: 50000
 });
+
+const apisauceInstance = create({ axiosInstance: customAxiosInstance });
+
+apisauceInstance.addMonitor(Reactotron.apisauce);
 
 const AUTH = {
   YES: true,
@@ -17,7 +22,7 @@ function apiGet(url, data) {
   const state = store.getState();
   let currentLang = state?.languages?.currentLang || "vi";
   const params = {...data, lang: currentLang};
-  return instance
+  return apisauceInstance
     .get(serverURL + url, {
       params,
     })
@@ -29,7 +34,7 @@ function apiPost(url, data) {
   const state = store.getState();
   let currentLang = state?.languages?.currentLang || "vi";
   const params = {...data, lang: currentLang};
-  return instance
+  return apisauceInstance
     .post(serverURL + url, params, {
       headers: {"Content-Type": "application/json"}
     })
@@ -41,14 +46,13 @@ function apiDelete(url, data) {
   const state = store.getState();
   let currentLang = state?.languages?.currentLang || "vi";
   const params = {...data, lang: currentLang};
-  return instance
+  return apisauceInstance
     .delete(serverURL + url, {
       params,
     })
     .then((response) => response.data)
     .catch((error) => error);
 }
-
 function postForm(url, data) {
   const state = store.getState();
   let currentLang = state?.languages?.currentLang || "vi";
@@ -62,7 +66,7 @@ function postForm(url, data) {
       formData.append(key, value);
     }
   });
-  return instance
+  return apisauceInstance
     .post(serverURL + url, formData, {})
     .then((response) => response.data)
     .catch((error) => error);

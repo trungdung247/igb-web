@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 export const resultProject = () => {
   const listProjects = useSelector(state => state.project?.listProjects) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
   
   const datas = useMemo(() => {
     let datas = [];

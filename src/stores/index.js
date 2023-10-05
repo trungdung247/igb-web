@@ -5,11 +5,12 @@ import Reactotron from 'reactotron-react-js';
 import * as reducers from './modules';
 import rootSaga from "./sagas";
 import storage from 'redux-persist/lib/storage';
+import ReactotronConfig from 'config/ReactotronConfig';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['languages', 'user', 'main'],
+  whitelist: ['languages', 'user'],
   timeout: 0
 };
 
@@ -24,6 +25,7 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
+const reactotron = ReactotronConfig.configure();
 const sagaMonitor = Reactotron.createSagaMonitor;
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 const pReducer = persistReducer(persistConfig, rootReducers);

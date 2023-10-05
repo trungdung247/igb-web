@@ -17,7 +17,7 @@ import { parseHtml } from "utils/format";
 function DetailActivity() {
   const dispatch = useDispatch();
   const {loadingDetailActivity, detailActivity} = useSelector(state => state.presentation);
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
 
   const {id} = useParams();
   const { routes } = useRoutesController();  

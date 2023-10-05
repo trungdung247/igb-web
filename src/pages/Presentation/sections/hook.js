@@ -13,7 +13,7 @@ import {
 
 export const useInfoSetting = () => {
   const listInformations = useSelector(state => state.main?.listInformations) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
     
   const resultInfos = useMemo(() => {
     let datas = [];
@@ -75,12 +75,11 @@ export const useInfoSocial = () => {
 export const useCounterPresen = () => {
   const dispatch = useDispatch();
   const listOutstandings = useSelector(state => state.presentation?.listOutstandings) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
 
   useEffect(() => {
-    if(listOutstandings?.length) return;
     dispatch(getListOutstandingAction());
-  }, [listOutstandings]);
+  }, []);
     
   const resultCounters = useMemo(() => {
     let datas = [];
@@ -129,7 +128,7 @@ export const useCounterPresen = () => {
 
 export const useServicePresen = () => {
   const listServices = useSelector(state => state.main?.listServices) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
     
   const resultServices = useMemo(() => {
     let datas = [];
@@ -157,7 +156,7 @@ export const useServicePresen = () => {
 
 export const useProjectPresen = () => {
   const listProjects = useSelector(state => state.main?.listProjects) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
   
   const resultProjects = useMemo(() => {
     let datas = [];
@@ -187,7 +186,7 @@ export const useProjectPresen = () => {
 export const useActivityPresen = () => {
   const dispatch = useDispatch();
   const listActivity = useSelector(state => state.presentation?.listActivity) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
 
   useEffect(() => {
     if(listActivity?.length) return;
@@ -335,7 +334,7 @@ export const useInfoPresen = () => {
 export const useCapacityPresen = () => {
   const dispatch = useDispatch();
   const listCapacity = useSelector(state => state.presentation?.listCapacity) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
 
   useEffect(() => {
     if(listCapacity?.length) return;
@@ -367,7 +366,7 @@ export const useCapacityPresen = () => {
 export const useRatingPresen = () => {
   const dispatch = useDispatch();
   const listRating = useSelector(state => state.presentation?.listRating) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
 
   useEffect(() => {
     if(listRating?.length) return;

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 export const resultService = () => {
   const listServices = useSelector(state => state.service?.listServices) || [];
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
   
   const datas = useMemo(() => {
     let datas = [];

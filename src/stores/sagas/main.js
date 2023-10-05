@@ -1,4 +1,4 @@
-import { takeLatest, put, select } from 'redux-saga/effects';
+import { takeLatest, put, select, delay } from 'redux-saga/effects';
 import apis from 'networking/apis';
 import { 
   START_CONNECT_ACTION,
@@ -11,7 +11,6 @@ function* getConfigMain({payload}) {
   try {
     // LoaderHandler.show(true);
     const currentLang = yield select(state => state.languages?.currentLang) || "vi";
-    yield put(changeLangAction(currentLang));
     yield put(updateMainStoreAction({loadingGetConfig: "loading"}));
     const res = yield apis.apiGet(apis.PATH.API_GET_CONFIG, payload);
     if (!res?.success && !res?.result) {
@@ -24,6 +23,8 @@ function* getConfigMain({payload}) {
       listProjects: datas?.listProjects || [],
       loadingGetConfig: "success"
     }));
+    yield delay(3000);
+    yield put(changeLangAction(currentLang));
   } catch (error) {
     console.log(error);
     yield put(updateMainStoreAction({loadingGetConfig: "error"}));

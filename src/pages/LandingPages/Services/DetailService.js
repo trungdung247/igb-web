@@ -18,7 +18,7 @@ import { parseHtml } from "utils/format";
 function DetailService() {
   const dispatch = useDispatch();
   const {loadingDetailService, detailService} = useSelector(state => state.service);
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
 
   const {id} = useParams();
   const {

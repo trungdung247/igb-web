@@ -44,7 +44,7 @@ module.exports = (env, argv) => {
                 App: path.resolve(__dirname, 'src/App'),
                 stores: path.resolve(__dirname, 'src/stores/'),
                 locales: path.resolve(__dirname, 'src/locales/'),
-                ReactotronConfig: path.resolve(__dirname, 'src/ReactotronConfig/'),
+                config: path.resolve(__dirname, 'src/config/'),
                 components: path.resolve(__dirname, 'src/components/'),
                 networking: path.resolve(__dirname, 'src/networking/'),
                 utils: path.resolve(__dirname, 'src/utils/'),

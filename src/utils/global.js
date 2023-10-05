@@ -12,7 +12,6 @@ export let global = {
         { icon: { alt: "flag_vi", src: flag_vi }, value: "vi", name: "Tiếng việt", id: 0 },
         { icon: { alt: "flag_en", src: flag_en }, value: "en", name: "English", id: 1 },
     ],
-    SERVER_TIMEOUT: 50000,
     listSocials: [
         {
             icon: <FacebookIcon />,

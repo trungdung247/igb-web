@@ -7,7 +7,7 @@ import { useCounterPresen } from "./hook";
 
 function Counters(){
   const { resultCounterPresen } = useCounterPresen(); 
-
+  console.log("AAAAAA:: ", resultCounterPresen)
   if(!resultCounterPresen?.length) return <></>;
   return (
     <MKBox component="section" py={3}>

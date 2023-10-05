@@ -18,7 +18,7 @@ import { parseHtml } from "utils/format";
 function DetailProject() {
   const dispatch = useDispatch();
   const {loadingDetailProject, detailProject} = useSelector(state => state.project);
-  const {currentLang} = useSelector(state => state.languages);
+  const currentLang = useSelector(state => state.languages?.currentLang) || "vi";
 
   const {id} = useParams();
   const {
