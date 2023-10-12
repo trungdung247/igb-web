@@ -83,7 +83,7 @@ function SignIn() {
                 textAlign="center"
               >
                 <MKTypography variant="h5" fontWeight="medium" color="white">
-                  {i18n.t('truy_cap_he_thong_quan_tri')}
+                  {i18n.t('he_thong_quan_tri')}
                 </MKTypography>
               </MKBox>
               <MKBox pt={4} pb={3} px={3}>

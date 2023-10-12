@@ -23,9 +23,7 @@ function apiGet(url, data) {
   let currentLang = state?.languages?.currentLang || "vi";
   const params = {...data, lang: currentLang};
   return apisauceInstance
-    .get(serverURL + url, {
-      params,
-    })
+    .get(serverURL + url, params)
     .then((response) => response.data)
     .catch((error) => error);
 }
@@ -47,9 +45,7 @@ function apiDelete(url, data) {
   let currentLang = state?.languages?.currentLang || "vi";
   const params = {...data, lang: currentLang};
   return apisauceInstance
-    .delete(serverURL + url, {
-      params,
-    })
+    .delete(serverURL + url, params)
     .then((response) => response.data)
     .catch((error) => error);
 }

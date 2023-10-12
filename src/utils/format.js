@@ -79,6 +79,6 @@ const options = {
 };
 
 export function parseHtml(content) {
-    const result = parse(content, options);
+    const result = content ? parse(content, options) : "";
     return result;
 }
