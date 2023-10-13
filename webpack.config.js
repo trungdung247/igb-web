@@ -111,7 +111,7 @@ module.exports = (env, argv) => {
                 filename: isProduction ? 'static/css/[name].[contenthash:6].css' : '[name].css'
             }),
             new Dotenv({
-              path: '.env' // default is .env
+              path: './.env' // default is .env
             }),
             new CopyWebpackPlugin({
                 patterns: [
