@@ -1,12 +1,16 @@
 {
   "presets": [
-    "@babel/preset-typescript", 
-    ["@babel/preset-env", {
-      "useBuiltIns": "usage",
-      "corejs": 3,
-      "targets": {
-        "firefox": "64" 
-      }
-    }],
-    ["@babel/preset-react", { "runtime": "automatic" }]]
+    "@babel/preset-typescript",
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+       {
+         "targets": {
+           "browsers": "last 2 versions"
+         },
+         "modules": false,
+         "loose": false
+       }
+     ]
+  ]
 }
