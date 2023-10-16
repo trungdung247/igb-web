@@ -45,8 +45,7 @@ const renderData = (({ image, title, route, description }) => (
 function Services() {
   const dispatch = useDispatch();
   const {loadingGetListService} = useSelector(state => state.service);
-  const { datas } = resultService(); 
-  console.log("KKKKKK:: ", datas)
+  const { datas } = resultService();
   const { routes } = useRoutesController();
   const { footerRoutes } = useFooterRoutesController();
   const { resultInfos } = useInfoSetting();
