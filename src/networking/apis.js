@@ -3,7 +3,7 @@ import store from 'stores';
 import { create } from 'apisauce'
 import Reactotron from 'reactotron-react-js';
 
-const serverURL = process.env.API_ENDPOINT;
+const serverURL = "https://igb-api.onrender.com/api";
 
 const customAxiosInstance = axios.create({ 
   timeout: 50000
