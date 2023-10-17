@@ -132,6 +132,7 @@ module.exports = (env, argv) => {
           ]
         }),
         new HtmlWebpackPlugin({
+          title: "IGB GROUP",
           template: path.resolve(__dirname, 'public', 'index.html'),
           filename: 'index.html'
         }),
